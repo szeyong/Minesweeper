@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minesweeper Game</title>
+        <!-- CSS stylesheet -->
+        <link rel="stylesheet" href="gamestyle.css">
+     </head>
+     <body>   
+        <h1 >Minesweeper</h1>
+        <!-- Select game levels ==> board size -->
+        <div id="levels">
+            <div id="levels"><button id="size-8">8x8</button></div> 
+            <div id="levels"><button id="size-16">16x16</button></div> 
+            <div id="levels"><button id="size-24">24x24</button></div>
+        </div>
+        <!-- Container for the game -->
+        <div class="game-container">
+            <div class="game-board">
+                <table id="board"></table>
+            </div>
+        </div>
+        <script src="gameboard.js"></script>
+     </body>
+</html>

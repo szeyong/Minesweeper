@@ -1,0 +1,110 @@
+body {
+    background-color: #CCFFFF;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 3rem;
+    color: black;
+    text-align: center;
+    margin: 20px;
+}
+
+#board {
+    background-color: lightgray;
+}
+
+table {
+    border-collapse: separate;
+}
+
+#levels {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: none;
+    margin: 2px;
+}
+
+button {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 14px;
+    height: 30px;
+    width: 100px;
+    background-color: darkolivegreen;
+    color: whitesmoke;
+    border-radius: 0.2rem;
+}
+
+button:hover {
+    background-color: #CCFFFF;
+    color: slategray;
+    cursor: pointer;
+}
+
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 10px;
+}
+
+#game-status  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2px;
+    margin: 6px;
+}
+
+#reset {
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    /* To create a popped-up effect for each cell */
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #7B7B7B;
+    border-bottom: 2px solid #7B7B7B;
+}
+
+#reset:hover {
+    text-align: center;
+    cursor: pointer;
+}
+
+#mineCounter, #timer {
+    font-family: sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: limegreen;
+    background-color: black;
+    text-align: center;
+    padding: 5px 5px 0 8px;
+    line-height: 1em;
+}
+
+td {
+    height: 20px;
+    width: 20px;
+    background-color: #D3D3D3;
+    border: 1.5px solid;
+    /* To create a popped-up effect for each cell */
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #7B7B7B;
+    border-bottom-color: #7B7B7B;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.uncovered {
+    font-family: sans-serif;
+    font-size: 90%;
+    font-weight:bold;
+    text-align: center;
+    background-color: #B0B0B0;
+    border: none;
+}
