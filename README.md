@@ -38,19 +38,23 @@ The game is build using HTML, CSS and Vanilla Javascript.
 
 ### Approach
 
-I begin the project by drawing a simple wireframe of how I want the game board to look like. Then the flow (and rule) of the game is being ran through, with notes on the actions required. Decided to use vanilla JS and build a simple board using tables in HTML, and later on manipulate the table-data and elements in JS. While going through the game logic, a list of "what-to-build" came up:
+I begin the project by drawing a simple wireframe of how I want the game board to look like. Then the flow (and rule) of the game is being ran through, with notes on the actions required. For a start, decided to use vanilla JS and begin by building a simple 6x6 board using tables in HTML, and later on manipulate the table-data and elements in JS. While going through the game logic, a list of "what-to-build" came up:
 
-- Initialise board model that set coordinates (row & col arrays), 
-- Add mines (randomly) and assign "numbers" adjacent to mines.
+- Build board model that set coordinates (row & col arrays),
+- Initialising game
+- Place mines (randomly) and assign "numbers" adjacent to mines.
 - Able to put Flags, and create counter for number of mines
-- Mouse click listeners: on cell, on reset, set flag
-- Create zonal checks (eg. around each cell)
+- Event listeners: on cell, on reset, set flag
+- Create zonal checks (eg. around each cell), render through every cell
+- Win and lose logic
 - Timer
 - Set difficulty levels (board sizes)
 
+
 ### Challenges
 
-To continue....
+The game logic is pretty straightforward if you are a fan of minesweeper, but building it does not come without challenges. I spent the most time in building the structure of the board (the table, arrays, cell, etc). However, once the main structure is ready (and with the game logic keep running in your mind), the various functions, class and listeners that support the game play then starts building up. Console logging (a lot of it!) helps to check and confirm the returns and values I need. I am glad I started with a smaller board as rendering processes through individual cells can be pretty painful. I also took the opportunity to read and pick up new functions and methods, and learn from other developers commmunities (stackoverflow, blogs etc). This project provides a good review on JS and CSS (which I believe you will only learn when you work on it). Not perfect, but I am happy. Always learning, always building :)
+
 
 
 
