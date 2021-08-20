@@ -51,14 +51,14 @@ const colors = [
 // Listen to button clicked for levels
 // Setting levels => board sizes: 8x8, 16x16, 24x24
 // Start/restart the game to the level chosen (determined by boardSize)
-document.getElementById('levels').addEventListener('click', function(e) {
+document.querySelector('#levels').addEventListener('click', function(e) {
   size = parseInt(e.target.id.replace('size-', '')); // return = 8, 16 or 24
   // console.log("size: "+size);
   start();
   render();
 });
 
-let boardElement = document.getElementById('board');
+let boardElement = document.querySelector('#board');
 
 boardElement.addEventListener('click', function(e) {
   if (success || strikeMine) return;
@@ -91,7 +91,7 @@ boardElement.addEventListener('click', function(e) {
 
 // Listener for the reset button (smiley)
 function resetListener() { 
-  document.getElementById('reset').addEventListener('click', function() {
+  document.querySelector('#reset').addEventListener('click', function() {
     start();
     render();
   });
@@ -205,7 +205,7 @@ function setTimer () {
   timerId = setInterval(function(){
     // console.log("Time Counter: "+timeCounter);
     timeCounter += 1;
-    document.getElementById('timer').innerText = timeCounter.toString().padStart(3, '0');
+    document.querySelector('#timer').innerText = timeCounter.toString().padStart(3, '0');
   }, 1000); //padStart() method pads a string to 000, eg. 001, 002 
 };
 
@@ -336,7 +336,7 @@ function checkWinner() {
 
 function render() {
   //padStart() method pads the mines count to 000, eg.010, 040
-  document.getElementById('mineCounter').innerText = mineCount.toString().padStart(3, '0');
+  document.querySelector('#mineCounter').innerText = mineCount.toString().padStart(3, '0');
   
   // Get cell values to check => flagged, uncover, mines, numbers; and assign new values, if any
   let tdList = Array.from(document.querySelectorAll('[data-row]')); // Get row array from table-data
@@ -364,7 +364,7 @@ function render() {
   });
 
   if (strikeMine) {
-    document.getElementById('reset').innerHTML = '<img src=images/face-dead.png>';
+    document.querySelector('#reset').innerHTML = '<img src=images/face-dead.png>';
     traverseAllCells(function(cell) {
       if (!cell.mines && cell.flagged) {
         let td = document.querySelector(`[data-row="${cell.row}"][data-col="${cell.col}"]`);
@@ -372,7 +372,7 @@ function render() {
       }
     });
   } else if (success) {
-    document.getElementById('reset').innerHTML = '<img src=images/face-winner.png>';
+    document.querySelector('#reset').innerHTML = '<img src=images/face-winner.png>';
     clearInterval(timerId); // stop timer
   }
 };
