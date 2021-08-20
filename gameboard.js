@@ -3,12 +3,12 @@
 // Game objects
 // 1. Initialise board model that set coordinates (row & col arrays), add mines (random), 
 //    and assign numbers adjacent to mines.
-// 2. Set timer (1000ms) and counter for mines (reduce with flags => Shift + mouse click)
-// 2. The listeners to the gameplay (mouse clicks)
-// 3. Zonal checks that render through different/all cells
-// 4. Add flag and count(down) of mines (when flagged) 
-// 6. [Future] Challenge levels: Easy(8x8), Medium(16x16), Hard(24x24) 
-// 5. [Future] A display table to log fastest time and player
+// 2. Set Flags and counter for mines
+// 3. Mouse click listeners to the gameplay
+// 4. Zonal checks that render all cells for different actions
+// 5. Set timer (1000ms)
+// 6. [Future] Challenge levels: Easy(8x8), Medium(16x16), Challenge(24x24) 
+// 7. [Future] A display table to log fastest time and player
 
 
 // Set Variables
@@ -91,7 +91,7 @@ boardElement.addEventListener('click', function(e) {
 });
 
 // Listener for the reset button (smiley)
-function createResetListener() { 
+function resetListener() { 
   document.getElementById('reset').addEventListener('click', function() {
     start();
     render();
@@ -248,7 +248,7 @@ function createBoard() {
   // building table-data(td) and table-row(tr) according to dimension (size) of game board
   boardElement.innerHTML = menuRow + `<tr>${'<td class="game-cell"></td>'.repeat(size)}</tr>`.repeat(size);
   boardElement.style.width = boardSize[size].boardWidth;
-  createResetListener(); // standby reset if click
+  resetListener(); // standby reset if click
 
   // To create individual cell's row and col values in table (td)
   // except class=menu which holds the timer and minecount
