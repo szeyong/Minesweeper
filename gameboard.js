@@ -10,7 +10,6 @@
 // 6. [Future] Challenge levels: Easy(8x8), Medium(16x16), Challenge(24x24) 
 // 7. [Future] A display table to log fastest time and player
 
-
 // Set Variables
 const boardSize = {
   '8': {
@@ -52,21 +51,21 @@ const colors = [
 // Listen to button clicked for levels
 // Setting levels => board sizes: 8x8, 16x16, 24x24
 // Start/restart the game to the level chosen (determined by boardSize)
-document.getElementById('levels').addEventListener('click', function(e) {
+document.querySelector('#levels').addEventListener('click', function(e) {
   size = parseInt(e.target.id.replace('size-', '')); // return = 8, 16 or 24
   // console.log("size: "+size);
   start();
   render();
 });
 
-let boardElement = document.getElementById('board');
+let boardElement = document.querySelector('#board');
 
 boardElement.addEventListener('click', function(e) {
   if (success || strikeMine) return;
   // checking if clicked cell tagName is an image (which means already flagged)
-  // If true: use e.target.parentElement to exit 
-  // Otherwise, check if shiftKey is clicked => place a flag; or a mine is struck => reveal all, end game
   let clickedElement = e.target.tagName.toLowerCase() === 'img' ? e.target.parentElement : e.target;
+  
+  // Check if shiftKey is clicked => place a flag; or a mine is struck => reveal all, end game
   if (clickedElement.classList.contains('game-cell')) {
     if (!timerId) {
       setTimer();
@@ -92,7 +91,7 @@ boardElement.addEventListener('click', function(e) {
 
 // Listener for the reset button (smiley)
 function resetListener() { 
-  document.getElementById('reset').addEventListener('click', function() {
+  document.querySelector('#reset').addEventListener('click', function() {
     start();
     render();
   });
@@ -206,11 +205,11 @@ function setTimer () {
   timerId = setInterval(function(){
     // console.log("Time Counter: "+timeCounter);
     timeCounter += 1;
-    document.getElementById('timer').innerText = timeCounter.toString().padStart(3, '0');
+    document.querySelector('#timer').innerText = timeCounter.toString().padStart(3, '0');
   }, 1000); //padStart() method pads a string to 000, eg. 001, 002 
 };
 
-// To uncover all the cells 
+// To uncover all the cells (end of game)
 function uncoverAll() {
   board.forEach(function(rowArr) {
     rowArr.forEach(function(cell) {
@@ -271,7 +270,7 @@ function setArrays() {
   return arr;
 };
 
-// Setup each cell with row+col values, place mines, put numbers adjacent to mines
+// Setup each cell to place mines, put numbers adjacent to mines
 function buildCells() {
   board.forEach(function(rowArr, rowIndex) {
     rowArr.forEach(function(empty, colIndex) {
@@ -337,7 +336,7 @@ function checkWinner() {
 
 function render() {
   //padStart() method pads the mines count to 000, eg.010, 040
-  document.getElementById('mineCounter').innerText = mineCount.toString().padStart(3, '0');
+  document.querySelector('#mineCounter').innerText = mineCount.toString().padStart(3, '0');
   
   // Get cell values to check => flagged, uncover, mines, numbers; and assign new values, if any
   let tdList = Array.from(document.querySelectorAll('[data-row]')); // Get row array from table-data
@@ -365,7 +364,7 @@ function render() {
   });
 
   if (strikeMine) {
-    document.getElementById('reset').innerHTML = '<img src=images/face-dead.png>';
+    document.querySelector('#reset').innerHTML = '<img src=images/face-dead.png>';
     traverseAllCells(function(cell) {
       if (!cell.mines && cell.flagged) {
         let td = document.querySelector(`[data-row="${cell.row}"][data-col="${cell.col}"]`);
@@ -373,7 +372,7 @@ function render() {
       }
     });
   } else if (success) {
-    document.getElementById('reset').innerHTML = '<img src=images/face-winner.png>';
+    document.querySelector('#reset').innerHTML = '<img src=images/face-winner.png>';
     clearInterval(timerId); // stop timer
   }
 };
