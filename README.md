@@ -7,13 +7,13 @@ The goal of the game is to uncover all the squares on a gridboard that do not co
 
 
 
-<img src="https://szeyong.github.io/project1/images/project1_screenshot.png">
+<img src="https://szeyong.github.io/Minesweeper/images/project1_screenshot.png">
 Screenshot: This is my version of the game
 
 
 ## Playing the Game
 
-You can try the game [here](https://szeyong.github.io/project1/index.html)
+You can try the game [here](https://szeyong.github.io/Minesweeper/index.html)
 
 **Win the game:** Uncover all cells without hitting the mines!
 
